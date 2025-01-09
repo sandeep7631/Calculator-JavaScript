@@ -1,0 +1,121 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #111827;
+}
+
+/* Calculator Container */
+.calculator {
+    background: #1f2937;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    padding: 20px;
+}
+
+/* Display Section */
+.display {
+    background: #111827;
+    color: #fff;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 20px 25px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#equation {
+    font-size: 20px;
+    color: #9ca3af;
+    min-height: 30px;
+    text-align: right;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+#ans {
+    font-size: 48px;
+    font-weight: 300;
+    text-align: right;
+    word-wrap: break-word;
+}
+
+/* Keypad Section */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* Buttons */
+.keypad button {
+    background: #374151;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-size: 28px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Hover and Active States */
+.keypad button:hover {
+    background: #4b5563;
+    transform: translateY(-2px);
+}
+
+.keypad button:active {
+    transform: translateY(1px);
+}
+
+/* Special Buttons Styling */
+#clear {
+    background: #dc2626;
+    color: white;
+}
+
+#clear:hover {
+    background: #ef4444;
+}
+
+/* Operator Buttons */
+#add, #subtract, #multiply, #divide {
+    background: #2563eb;
+    color: white;
+    font-size: 32px;
+}
+
+#add:hover, #subtract:hover, #multiply:hover, #divide:hover {
+    background: #3b82f6;
+}
+
+/* Equals Button */
+#equals {
+    background: #059669;
+    grid-column: span 4;
+    border-radius: 16px;
+}
+
+#equals:hover {
+    background: #10b981;
+}
+
+/* Number Buttons */
+.number {
+    background: #374151;
+}
+
+.number:hover {
+    background: #4b5563;
+}
