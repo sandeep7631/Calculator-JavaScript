@@ -1,39 +1,41 @@
-/* General Reset */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background: #111827;
+    padding: 10px;
 }
 
 /* Calculator Container */
 .calculator {
     background: #1f2937;
-    border-radius: 20px;
+    border-radius: clamp(12px, 3vw, 20px);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    width: 350px;
-    padding: 20px;
+    width: min(400px, 95vw);
+    padding: clamp(12px, 3vw, 20px);
+    margin: auto;
 }
 
-/* Display Section */
+/* Display Area */
 .display {
     background: #111827;
     color: #fff;
-    border-radius: 16px;
-    margin-bottom: 20px;
+    border-radius: clamp(10px, 2vw, 16px);
+    margin-bottom: clamp(12px, 3vw, 20px);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 20px 25px;
-    min-height: 120px;
+    padding: clamp(15px, 4vw, 25px);
+    min-height: clamp(80px, 15vh, 120px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
+/* Equation Display (Top) */
 #equation {
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 20px);
     color: #9ca3af;
     min-height: 30px;
     text-align: right;
@@ -41,35 +43,36 @@ body {
     word-wrap: break-word;
 }
 
+/* Answer Display (Bottom) */
 #ans {
-    font-size: 48px;
+    font-size: clamp(32px, 8vw, 48px);
     font-weight: 300;
     text-align: right;
     word-wrap: break-word;
 }
 
-/* Keypad Section */
+/* Keypad Layout */
 .keypad {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    gap: clamp(6px, 1.5vw, 15px);
 }
 
-/* Buttons */
+/* Button Base Styles */
 .keypad button {
     background: #374151;
     color: #fff;
     border: none;
-    border-radius: 16px;
-    font-size: 28px;
-    padding: 25px;
+    border-radius: clamp(8px, 2vw, 16px);
+    font-size: clamp(16px, 4vw, 28px);
+    padding: clamp(10px, 3vw, 25px);
     cursor: pointer;
     transition: all 0.2s ease;
     font-weight: 500;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Button Hover and Active States */
+/* Button Interaction States */
 .keypad button:hover {
     background: #4b5563;
     transform: translateY(-2px);
@@ -79,7 +82,7 @@ body {
     transform: translateY(1px);
 }
 
-/* Special Buttons Styling */
+/* Clear Button */
 #clear {
     background: #dc2626;
     color: white;
@@ -93,7 +96,7 @@ body {
 #add, #subtract, #multiply, #divide {
     background: #2563eb;
     color: white;
-    font-size: 32px;
+    font-size: clamp(24px, 6vw, 32px);
 }
 
 #add:hover, #subtract:hover, #multiply:hover, #divide:hover {
@@ -104,7 +107,7 @@ body {
 #equals {
     background: #059669;
     grid-column: span 4;
-    border-radius: 16px;
+    border-radius: clamp(8px, 2vw, 16px);
 }
 
 #equals:hover {
@@ -118,4 +121,67 @@ body {
 
 .number:hover {
     background: #4b5563;
+}
+
+/* Landscape Mode Optimization */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .calculator {
+        width: min(95vw, 600px);
+    }
+
+    .display {
+        min-height: clamp(60px, 10vh, 100px);
+    }
+
+    .keypad {
+        gap: 6px;
+    }
+
+    .keypad button {
+        padding: clamp(8px, 2vh, 15px);
+        font-size: clamp(14px, 3vh, 24px);
+    }
+}
+
+/* Mobile Portrait Optimization */
+@media screen and (max-width: 350px) {
+    .calculator {
+        padding: 10px;
+        width: 98vw;
+    }
+    
+    .display {
+        padding: 12px;
+        min-height: 80px;
+    }
+
+    .keypad button {
+        padding: 8px;
+        font-size: 16px;
+    }
+}
+
+/* Add touch device optimization */
+@media (hover: none) {
+    .keypad button:hover {
+        transform: none;
+        background: #374151;
+    }
+
+    #clear:hover {
+        background: #dc2626;
+    }
+
+    #add:hover, #subtract:hover, #multiply:hover, #divide:hover {
+        background: #2563eb;
+    }
+
+    #equals:hover {
+        background: #059669;
+    }
 }
