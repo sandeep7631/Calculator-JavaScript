@@ -23,7 +23,7 @@ This project is a simple and functional calculator built using HTML, CSS, and Ja
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sandeep7631/Calculator-JavaScrpit.git
+   git clone https://github.com/sandeep7631/Calculator-JavaScript.git
    ```
 2. Navigate to the project directory:
    ```bash
